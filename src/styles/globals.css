@@ -31,3 +31,11 @@ body {
     text-wrap: balance;
   }
 }
+
+.linear-colour{
+  background: var(--Linear, linear-gradient(90deg, #E2C196 45.88%, #69BB44 63.46%));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
