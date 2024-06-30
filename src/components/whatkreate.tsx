@@ -85,23 +85,23 @@ export default function WhatKreate() {
               loop: true,
             }}
             plugins={[
-              React.useRef(Autoplay({ delay: 1500, stopOnInteraction: true }))
+              React.useRef(Autoplay({ delay: 1800, stopOnInteraction: true }))
                 .current,
             ]}
             onMouseEnter={
-              React.useRef(Autoplay({ delay: 1500, stopOnInteraction: true }))
+              React.useRef(Autoplay({ delay: 1800, stopOnInteraction: true }))
                 .current.stop
             }
             onMouseLeave={
-              React.useRef(Autoplay({ delay: 1500, stopOnInteraction: true }))
+              React.useRef(Autoplay({ delay: 1800, stopOnInteraction: true }))
                 .current.reset
             }
           >
-            <CarouselContent>
+            <CarouselContent className="">
               {carouselData.map((data, index) => (
                 <CarouselItem
                   key={index}
-                  className="lg:basis-[280px] "
+                  className="lg:basis-[280px] basis-[200px] md:pl-4"
                   //   className="w-40 h-72 ] md:basis-[144px] lg:basis-[260px] border border-white transition-all"
                 >
                   <div className="border border-white w-40 h-72 lg:w-[260px] lg:h-[430px] md:w-36">
@@ -120,13 +120,13 @@ export default function WhatKreate() {
                 </CarouselItem>
               ))}
             </CarouselContent>
+            <div>
+              <div className="absolute top-0 left-0 w-1/3 h-full bg-gradient-to-r to-transparent from-[#131313] pointer-events-none" />
+              <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l to-transparent from-[#131313] pointer-events-none" />
+            </div>
             <CarouselPrevious variant={"link"} />
             <CarouselNext variant={"link"} />
           </Carousel>
-          <div>
-            <div className="absolute top-0 left-0 w-1/3 h-full bg-gradient-to-r to-transparent from-[#131313] pointer-events-none" />
-            <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l to-transparent from-[#131313] pointer-events-none" />
-          </div>
         </div>
       </div>
     </>
