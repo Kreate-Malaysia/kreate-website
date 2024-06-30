@@ -6,9 +6,7 @@ export default function Progress(){
     return(
         <div className="flex flex-col justify-center items-center py-[200px] max-w-[800px]">   
             <span className="lg:text-2xl text-base font-bold text-center flex">
-                <Image src={'/roadblock-icon.png'} width={32} height={32} alt="Roadblock icon" className="h-full inline"/>
-                &nbsp;Progress map WIP&nbsp;
-                <Image src={'/roadblock-icon.png'} width={32} height={32} alt="Roadblock icon" className="h-full inline"/>
+			🚧 Progress map WIP 🚧
             </span>
             <div className="text-center text-white lg:text-lg text-xs font-normal mt-6">
                 How about following our 

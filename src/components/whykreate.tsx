@@ -32,12 +32,12 @@ export default function WhyKreate(){
                 <span>Why&nbsp;</span> 
                 <Image src={"/logo.png"} width={161} height={66} alt="logo"/>
             </div>
-            <div className="grid sm:grid-cols-1 lg:grid-cols-3 gap-y-4">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-y-4">
                 {data.map((item, index) => (
                     <div key={index} className="text-white flex flex-col items-center text-center">
-                    <Image src={item.iconPath} width={40} height={40} alt={item.title}/>
-                    <span className="text-base linear-colour font-bold mb-2 mt-1 min-h-[60px]">{item.title}</span>
-                    <p className="text-center text-sm font-normal">{item.description}</p>
+                        <Image src={item.iconPath} width={40} height={40} alt={item.title}/>
+                        <span className="text-base linear-colour font-bold mb-2 mt-1 min-h-[60px]">{item.title}</span>
+                        <p className="text-center text-sm font-normal">{item.description}</p>
                     </div>
                 ))}
             </div>

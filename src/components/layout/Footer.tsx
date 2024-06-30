@@ -30,7 +30,7 @@ export default function Footer(){
             <div className="flex sm:flex-row flex-col gap-x-10 mb-[100px] ">
                 {data.map((item, index) => (
                     <div className="flex items-center mb-4">
-                        <Image src={item.imgSrc} width={24} height={24} alt={item.alt} className="h-6"/>
+                        <Image src={item.imgSrc} width={24} height={24} alt={item.alt} key={index} className="h-6"/>
                         <span className="ml-2 lg:text-base text-xs">{item.link}</span>
                     </div>
                 ))}
