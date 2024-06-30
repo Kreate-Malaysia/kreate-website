@@ -1,6 +1,14 @@
 import Image from "next/image";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { useEffect, useRef, useState } from "react";
+import React from "react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "./ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 interface CarouselItem {
   image: string;
@@ -54,38 +62,9 @@ const carouselData = [
 ];
 
 export default function WhatKreate() {
-  const listRef = useRef<HTMLUListElement>(null);
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    const list = listRef.current;
-    if (list) {
-      const itemWidth =
-        list.firstChild instanceof HTMLElement
-          ? list.firstChild.offsetWidth
-          : 0;
-      list.scrollTo({ left: currentIndex * itemWidth, behavior: "smooth" });
-    }
-  }, [currentIndex]);
-
-  const scrollLeft = () => {
-    const numItems = carouselData.length;
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + numItems) % numItems);
-  };
-
-  const scrollRight = () => {
-    const numItems = carouselData.length;
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % numItems);
-  };
-
-  const hideScrollbarStyle: React.CSSProperties = {
-    scrollbarWidth: "none",
-    msOverflowStyle: "none",
-  };
-
   return (
     <>
-      <div className="flex flex-col gap-4 justify-center text-center w-screen ">
+      <div className="flex flex-col gap-4 justify-center text-center w-[99%] ">
         <div className="pt-12 text-center text-base font-bold md:text-xl lg:text-2xl">
           What we&rsquo;re &lsquo;kreate&rsquo; ing
         </div>
@@ -98,49 +77,55 @@ export default function WhatKreate() {
             Success
           </span>
         </div>
+
         <div className="pt-9 relative">
-          <ul
-            className="flex gap-2 overflow-x-scroll snap-x snap-mandatory lg:gap-6"
-            style={hideScrollbarStyle}
+          <Carousel
+            opts={{
+              align: "center",
+              loop: true,
+            }}
+            plugins={[
+              React.useRef(Autoplay({ delay: 1500, stopOnInteraction: true }))
+                .current,
+            ]}
+            onMouseEnter={
+              React.useRef(Autoplay({ delay: 1500, stopOnInteraction: true }))
+                .current.stop
+            }
+            onMouseLeave={
+              React.useRef(Autoplay({ delay: 1500, stopOnInteraction: true }))
+                .current.reset
+            }
           >
-            {[
-              ...carouselData.slice(-1),
-              ...carouselData,
-              ...carouselData.slice(0, 1),
-            ].map((data, index) => (
-              <li
-                key={index}
-                className="flex flex-col w-40 h-72 border border-white snap-center snap-always lg:w-[260px] lg:h-[430px] flex-shrink-0"
-              >
-                <div className="bg-white w-40 h-40 relative lg:w-[260px] lg:h-[260px]">
-                  <Image src={data.image} alt={data.name} fill />
-                </div>
-                <div className="flex flex-col gap-1 p-2 lg:p-3 lg:gap-3">
-                  <div className="text-white text-[14px] font-semibold text-left lg:text-base ">
-                    {data.name}
+            <CarouselContent>
+              {carouselData.map((data, index) => (
+                <CarouselItem
+                  key={index}
+                  className="lg:basis-[280px] "
+                  //   className="w-40 h-72 ] md:basis-[144px] lg:basis-[260px] border border-white transition-all"
+                >
+                  <div className="border border-white w-40 h-72 lg:w-[260px] lg:h-[430px] md:w-36">
+                    <div className="bg-white w-40 h-40 relative lg:w-[260px] lg:h-[260px] md:w-36 md:h-36 ">
+                      <Image src={data.image} alt={data.name} fill />
+                    </div>
+                    <div className="flex flex-col gap-1 p-2 lg:p-3 lg:gap-3">
+                      <div className="text-white text-[14px] font-semibold text-left lg:text-base">
+                        {data.name}
+                      </div>
+                      <div className="text-white text-xs font-semibold text-justify lg:text-[18px] lg:font-normal lg:leading-6">
+                        {data.description}
+                      </div>
+                    </div>
                   </div>
-                  <div className="text-white text-xs font-semibold text-justify lg:text-[18px] lg:font-normal lg:leading-6">
-                    {data.description}
-                  </div>
-                </div>
-              </li>
-            ))}
-          </ul>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious variant={"link"} />
+            <CarouselNext variant={"link"} />
+          </Carousel>
           <div>
             <div className="absolute top-0 left-0 w-1/3 h-full bg-gradient-to-r to-transparent from-[#131313] pointer-events-none" />
             <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l to-transparent from-[#131313] pointer-events-none" />
-          </div>
-          <div
-            className="absolute top-[50%] left-0 -translate-y-[50%] cursor-pointer"
-            onClick={scrollLeft}
-          >
-            <IoIosArrowBack className="text-2xl text-white" />
-          </div>
-          <div
-            className="absolute top-[50%] right-0 -translate-y-[50%] cursor-pointer"
-            onTouchMove={scrollRight}
-          >
-            <IoIosArrowForward className="text-2xl text-white" />
           </div>
         </div>
       </div>
