@@ -3,17 +3,17 @@ import Image from "next/image";
 
 const data = [
     {
-        imgSrc: "/instagram.png",
+        imgSrc: "/instagram.svg",
         alt: "Instagram",
         link: "@start.kreate"
     },
     {
-        imgSrc: "/linkedin.png",
+        imgSrc: "/linkedin.svg",
         alt: "LinkedIn",
         link: "startkreate"
     },
     {
-        imgSrc: "/gmail.png",
+        imgSrc: "/gmail.svg",
         alt: "Gmail",
         link: "dmkreate@gmail.com"
     }
@@ -21,12 +21,17 @@ const data = [
 export default function Footer(){
     return(
         <div className="flex flex-col justify-center items-center pt-[100px] ">
-            <span className="text-2xl text-center mb-10">Not your typical 🦶er  </span>
+            <span className="lg:text-2xl text-base font-bold text-center mb-10">Not your typical&nbsp;
+                <div>
+                    <Image src={'/footer-icon.svg'} width={52} height={52} alt="Footer icon" className="inline w-min max-h-52"/> er  
+
+                </div>
+                </span>
             <div className="flex sm:flex-row flex-col gap-x-10 mb-[100px] ">
                 {data.map((item, index) => (
-                    <div className="flex items-center">
+                    <div className="flex items-center mb-4">
                         <Image src={item.imgSrc} width={24} height={24} alt={item.alt} className="h-6"/>
-                        <span className="ml-2 text-base">{item.link}</span>
+                        <span className="ml-2 lg:text-base text-xs">{item.link}</span>
                     </div>
                 ))}
             </div>

@@ -2,6 +2,7 @@ import Image from "next/image";
 import WhyKreate from "./whykreate";
 import Progress from "./progress";
 import Footer from "@/components/layout/Footer";
+import {Carousel} from "@/components/ui/Carousel";
 
 
 export default function Home() {
@@ -13,6 +14,8 @@ export default function Home() {
       <div className="py-[200px] text-center text-2xl ">
         What we&lsquo;re kreating
       </div>
+      <Carousel/>
+
       <Progress/>
       <Footer/>
     </main>
