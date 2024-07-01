@@ -7,19 +7,17 @@ import CommunityCarousel from "@/components/CommunityCarousel";
 import Hero from "@/components/hero";
 
 export default function Home() {
-  return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between md:px-[70px]`}
-    >
+	return (
+		<main className={`flex min-h-screen flex-col items-center justify-between md:px-[70px]`}>
 			<section className='pt-[180px]'>
 				<Hero />
 			</section>
-      <WhyKreate />
-      <CommunityCarousel />
-      <Progress />
-      <AboutUs />
+			<WhyKreate />
+			<CommunityCarousel />
+			<Progress />
+			<AboutUs />
 
-      <Footer />
-    </main>
-  );
+			<Footer />
+		</main>
+	);
 }
