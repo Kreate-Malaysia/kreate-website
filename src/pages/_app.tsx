@@ -8,7 +8,7 @@ export default function App({ Component, pageProps }: AppProps) {
 	return (
 		<main className={manrope.className}>
 			<Navbar />
-			<Component {...pageProps} />;
+			<Component {...pageProps} />
 		</main>
 	);
 }

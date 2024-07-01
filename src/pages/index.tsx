@@ -12,11 +12,10 @@ export default function Home() {
 			<section className='pt-[180px]'>
 				<Hero />
 			</section>
+			<AboutUs />
 			<WhyKreate />
 			<CommunityCarousel />
 			<Progress />
-			<AboutUs />
-
 			<Footer />
 		</main>
 	);
