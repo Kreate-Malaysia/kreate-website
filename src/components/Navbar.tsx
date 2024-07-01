@@ -38,7 +38,7 @@ export default function Navbar() {
             </nav>
 
             {/* Desktop Navbar */}
-            <nav className="text-white sticky top-0 z-20 bg-[#131313] flex justify-between items-center p-4">
+            <nav className="text-white sticky top-0 z-20 bg-[#131313] justify-between items-center p-4 hidden lg:flex">
                 <Image 
                     src="/logo.png"
                     alt="Kreate Logo"
