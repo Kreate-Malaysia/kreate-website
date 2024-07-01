@@ -57,7 +57,7 @@ export default function WhyKreate(){
                     <span className={`w-11/12 lg:text-base text-sm linear-colour font-bold lg:mt-20 md:mt-16  mt-24 max-w-full min-h-[60px] transform transition-transform duration-400 ${clickedIndex[index] ? 'absolute lg:-translate-y-24 -translate-y-20' : 'translate-y-0'}`}>
                         {item.title}
                     </span>
-                    <p className={`text-center lg:text-sm text-xs lg:font-normal w-11/12 mt-4 ${clickedIndex[index] ? "fadein absolute lg:mt-28 mt-28 w-full" : "opacity-0 hidden"}`}>
+                    <p className={`text-center lg:text-sm text-xs lg:font-normal w-11/12 mt-4 ${clickedIndex[index] ? "fadein absolute lg:mt-28 md:mt-20 mt-28 w-full" : "opacity-0 hidden"}`}>
                         {item.description}
                     </p>
                 </div>
