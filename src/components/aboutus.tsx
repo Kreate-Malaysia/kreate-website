@@ -40,7 +40,7 @@ export default function AboutUs(){
             <div
                 className={`transition-transform duration-1000 text-2xl  
                 ${
-                inView ? 'translate-x-[10vw] md:translate-x-[19vw] lg:translate-x-[25vw] translate-y-[384px] lg:translate-y-[500px] lg:text-2xl text-sm font-bold' : ''
+                inView ? 'translate-x-[10vw] md:translate-x-[19vw] lg:translate-x-[24vw] translate-y-[384px] lg:translate-y-[500px] lg:text-2xl text-sm font-bold' : ''
                 }`}
             >
                 <span className={`${inView ? 'lg:text-base text-xs lg:font-medium font-normal' : ''}`}>
