@@ -1,53 +1,64 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Image from "next/image";
 
 
 export default function AboutUs(){
-    const [isScrolled, setIsScrolled] = useState(false);
+    const ref = useRef<HTMLDivElement | null>(null);
 
-    // useEffect(() => {
-    //   const handleScroll = () => {
-    //     const section = document.getElementById('about-kreate');
-    //     if (!section) return;
-    //     const scrollPosition = window.scrollY + window.innerHeight;
-    //     const sectionPosition = section.offsetTop + (section.offsetHeight * 0.5);
+    const [inView, setInView] = useState(false);
 
-    //     if (scrollPosition >= sectionPosition) {
-    //       setIsScrolled(true);
-    //     }
-    //   };
-  
-    //   window.addEventListener('scroll', handleScroll);
-    //   return () => {
-    //     window.removeEventListener('scroll', handleScroll);
-    //   };
-    // }, []);
-  
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                if (entries[0].isIntersecting) {
+                    setInView(true);
+                    observer.disconnect();
+                }
+            },
+            { threshold: 0.7 }
+        );
+
+        if (ref.current) {
+            observer.observe(ref.current);
+        }
+
+        return () => {
+            if (observer) {
+                observer.disconnect();
+            }
+        };
+    }, []);
+
+
 
     return(
-        <div id="about-kreate" className="flex flex-col justify-center items-center text-center py-[100px] max-w-[1200px] h-[800px] about-kreate">
+    //     <div ref={ref} className={inView ? 'in-view' : ''}>
+    //     {/* Your content here */}
+    //     <h1 className='text-3xl'>{inView ? 'Element is in view' : 'Element is not in view'}</h1>
+    //   </div>
+       <div ref={ref} id="about-kreate" className="flex flex-col justify-center items-center text-center py-[100px] max-w-[1200px] h-[800px] about-kreate">
             <div
                 className={`transition-transform duration-1000 text-2xl  
                 ${
-                isScrolled ? 'translate-x-[10vw] md:translate-x-[19vw] lg:translate-x-[25vw] translate-y-[384px] lg:translate-y-[500px] lg:text-2xl text-sm font-bold' : ''
+                inView ? 'translate-x-[10vw] md:translate-x-[19vw] lg:translate-x-[25vw] translate-y-[384px] lg:translate-y-[500px] lg:text-2xl text-sm font-bold' : ''
                 }`}
             >
-                <span className={`${isScrolled ? 'lg:text-base text-xs lg:font-medium font-normal' : ''}`}>
+                <span className={`${inView ? 'lg:text-base text-xs lg:font-medium font-normal' : ''}`}>
                     If you are&nbsp;    
                 </span>
                 <div className='inline text-lg lg:text-3xl'>
-                    <span className={`linear-colour  ${isScrolled ? 'lg:text-2xl text-sm lg:font-bold font-normal' : ''}`}>
+                    <span className={`linear-colour  ${inView ? 'lg:text-2xl text-sm lg:font-bold font-normal' : ''}`}>
                         Wonde
                     </span>
-                    <span className={`${isScrolled ? 'lg:text-2xl text-sm lg:font-bold font-normal' : ''}`}>
+                    <span className={`${inView ? 'lg:text-2xl text-sm lg:font-bold font-normal' : ''}`}>
                         💍
                     </span>
                 </div>
-                <span className={`${isScrolled ? 'lg:text-base text-xs  lg:font-medium font-normal' : ''}`}>what is kreate...</span>
+                <span className={`${inView ? 'lg:text-base text-xs  lg:font-medium font-normal' : ''}`}>what is kreate...</span>
             </div>
             <div
                 className={`transition-opacity duration-800 flex flex-col items-center max-w-[840px] ${
-                isScrolled ? 'opacity-100' : 'opacity-0'
+                inView ? 'opacity-100' : 'opacity-0'
                 }`}
             >
                 <Image src={"/logo.png"} width={315} height={124} alt="logo"/>
