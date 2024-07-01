@@ -41,3 +41,12 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+.gradient-icon {
+  fill: url(#gradient);
+}
+
+.gradient-defs {
+  width: 0;
+  height: 0;
+}
