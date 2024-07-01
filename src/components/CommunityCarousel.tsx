@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
 import React from "react";
+import { teamData } from "@/data/teamData";
 import {
   Carousel,
   CarouselContent,
@@ -16,52 +16,7 @@ interface CarouselItem {
   description: string;
 }
 
-const carouselData = [
-  {
-    image: "/characters/Johnson.svg",
-    name: "Johnson",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
-  },
-  {
-    image: "/characters/JunShen.svg",
-    name: "Jun Shen",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
-  },
-  {
-    image: "/characters/SiewWin.svg",
-    name: "Siew Win",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
-  },
-  {
-    image: "/characters/SeanHoe.svg",
-    name: "Sean Hoe",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
-  },
-  {
-    image: "/characters/WeiHup.svg",
-    name: "Wei Hup",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
-  },
-  {
-    image: "/characters/JunIan.svg",
-    name: "Jun Ian",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
-  },
-  {
-    image: "/characters/Elise.svg",
-    name: "Elise",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
-  },
-];
-
-export default function WhatKreate() {
+export default function CommunityCarousel() {
   return (
     <>
       <div className="flex flex-col gap-4 justify-center text-center w-[99%] ">
@@ -98,7 +53,7 @@ export default function WhatKreate() {
             }
           >
             <CarouselContent className="">
-              {carouselData.map((data, index) => (
+              {teamData.map((data, index) => (
                 <CarouselItem
                   key={index}
                   className="lg:basis-[280px] basis-[200px] md:pl-4"
