@@ -14,11 +14,13 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       fontSize: {
-        '2xl': ['48px', { lineHeight: '52px', fontWeight: 'bold' }],
-        'xl': ['36px', { lineHeight: '40px', fontWeight: 'bold' }],
-        'lg': ['30px', { lineHeight: '36px', fontWeight: 'bold' }],
-        'base': ['24px', { lineHeight: '32px', fontWeight: 'semi-bold' }],
-        'sm': ['20px', { lineHeight: '28px', fontWeight: 'semi-bold' }]
+        "3xl": ["64px", { lineHeight: "68px", fontWeight: "bold" }],
+        "2xl": ["48px", { lineHeight: "52px", fontWeight: "bold" }],
+        xl: ["36px", { lineHeight: "40px", fontWeight: "bold" }],
+        lg: ["30px", { lineHeight: "36px", fontWeight: "bold" }],
+        base: ["24px", { lineHeight: "32px", fontWeight: "semi-bold" }],
+        sm: ["20px", { lineHeight: "28px", fontWeight: "semi-bold" }],
+        xs: ["16px", { lineHeight: "24px", fontWeight: "normal" }],
       },
     },
   },

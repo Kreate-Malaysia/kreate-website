@@ -11,8 +11,8 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background-start-rgb: 19, 19, 19;
+    --background-end-rgb: 19, 19, 19;
   }
 }
 
@@ -32,10 +32,21 @@ body {
   }
 }
 
-.linear-colour{
-  background: var(--Linear, linear-gradient(90deg, #E2C196 45.88%, #69BB44 63.46%));
+.linear-colour {
+  background: var(
+    --Linear,
+    linear-gradient(90deg, #e2c196 45.88%, #69bb44 63.46%)
+  );
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
+.gradient-icon {
+  fill: url(#gradient);
+}
+
+.gradient-defs {
+  width: 0;
+  height: 0;
+}
