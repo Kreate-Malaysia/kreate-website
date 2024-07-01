@@ -3,13 +3,13 @@ export const teamData = [
       image: "/characters/Johnson.svg",
       name: "Johnson",
       description:
-        "i'm building the ultimate life organizing app with notion.",
+        "I'm building the ultimate life organizing app with notion.",
     },
     {
       image: "/characters/JunShen.svg",
       name: "Jun Shen",
       description:
-        "i'm building a web game that teaches people about python programming",
+        "I'm building a web game that teaches people about python programming",
     },
     {
       image: "/characters/SiewWin.svg",
@@ -21,7 +21,7 @@ export const teamData = [
       image: "/characters/SeanHoe.svg",
       name: "Sean Hoe",
       description:
-        "i'm trying to build something on the solana ecosystem",
+        "I'm trying to build something on the solana ecosystem",
     },
     {
       image: "/characters/WeiHup.svg",
@@ -39,6 +39,6 @@ export const teamData = [
       image: "/characters/Elise.svg",
       name: "Elise",
       description:
-        "i'm going to start writing a weekly blog about design and foods",
+        "I'm going to start writing a weekly blog about design and foods",
     },
   ];
